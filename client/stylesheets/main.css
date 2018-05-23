@@ -10057,7 +10057,7 @@ input:hover {
 
 .stat__graphic {
     position: absolute;
-    bottom: -30px;
+    bottom: +100px;
     right: 0
 }
 
