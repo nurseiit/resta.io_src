@@ -40,15 +40,37 @@ Template.promo.onRendered (function () {
           'timestamp': mDate.toString(),
           'code': 0
         });
-        /*$.ajax({
-          type: "POST",
-             url: "/mail.php",
-          data: $(form).serialize(),
-          success: function () {
-                        $(form).trigger("reset");
-          }
-        });*/
+        alertify.success ('Thanks for subscribing!');
         return false; // required to block normal submit since you used ajax
       }
+  });
+});
+
+Template.subscribe.onRendered (function () {
+  $("#subscribe-bot").validate({
+    rules: {
+      subscribe_bot__email: {
+          required: true,
+          email: true
+       },
+    },
+    messages: {
+      subscribe_bot__email: {
+       required: "",
+       email: ""
+       },
+
+     },
+     submitHandler: function (form) {
+       let mDate = new Date();
+       let newRef = firebase.database().ref ('list/').push();
+       newRef.set ({
+         'mail': $('#fb_input_2')[0].value,
+         'timestamp': mDate.toString(),
+         'code': 0
+       });
+       alertify.success ('Thanks for subscribing!');
+       return false; // required to block normal submit since you used ajax
+     }
   });
 });

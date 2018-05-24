@@ -1,65 +1,15 @@
-import AOS from 'aos'
+import AOS from 'aos';
 
-$(function() {
-
-	$(document).ready(function(){
-
-		// custom select
-		$('.select').each(function(){
-            var $this = $(this), numberOfOptions = $(this).children('option').length;
-
-            $this.addClass('select-hidden');
-            $this.wrap('<div class="select"></div>');
-            $this.after('<div class="select-styled"></div>');
-
-            var $styledSelect = $this.next('div.select-styled');
-            $styledSelect.text($this.children('option').eq(0).text());
-
-            var $list = $('<ul />', {
-                'class': 'select-options'
-            }).insertAfter($styledSelect);
-
-            for (var i = 0; i < numberOfOptions; i++) {
-                $('<li />', {
-                    text: $this.children('option').eq(i).text(),
-                    rel: $this.children('option').eq(i).val()
-                }).appendTo($list);
-            }
-
-            var $listItems = $list.children('li');
-
-            $styledSelect.click(function(e) {
-                e.stopPropagation();
-                $('div.select-styled.active').not(this).each(function(){
-                    $(this).removeClass('active').next('ul.select-options').hide();
-                });
-                $(this).toggleClass('active').next('ul.select-options').fadeToggle();
-            });
-
-            $listItems.click(function(e) {
-                e.stopPropagation();
-                $styledSelect.text($(this).text()).removeClass('active');
-                $this.val($(this).attr('rel'));
-                $list.fadeOut();
-                //console.log($this.val());
-            });
-
-            $(document).click(function() {
-                $styledSelect.removeClass('active');
-                $list.fadeOut();
-            });
-
-        });
-
-        // check inputs
-        $(".form__input").focus(function(){
+Template.home.onRendered (function() {
+    // check inputs
+    $(".form__input").focus(function(){
 			$(this).addClass("in");
 		});
 		$(".form__input").focusout(function(){
 			if($.trim($(this).val()) == ''){
-		      $(this).removeClass('in')
-		   }
-        });
+		    $(this).removeClass('in')
+		  }
+     });
 
         // press  carousel
 
@@ -175,6 +125,4 @@ $(function() {
 			        $('.fixed-menu').removeClass('open');
 			    }
         });
-
-		});
 });
