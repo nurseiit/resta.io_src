@@ -9477,14 +9477,14 @@ input:hover {
 }
 
 .partners__logo img {
-    opacity: .25;
+    opacity: .99;
     -webkit-transition: .4s;
     -o-transition: .4s;
     transition: .4s
 }
 
 .partners__logo:hover img {
-    opacity: .5
+    opacity: .99
 }
 
 .partners .block-header {
