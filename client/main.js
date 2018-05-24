@@ -96,9 +96,7 @@ $(function() {
             }
         });
 
-
-
-        // timer
+        /*/ timer
 
         var countDownDate = new Date("Jun 20, 2018 15:37:25").getTime();
 
@@ -127,7 +125,7 @@ $(function() {
                 $("#timer").html("EXPIRED");
             }
         }, 1000);
-
+				//Timer End */
 
          // counter up values
         $('.counter').countUp({
@@ -154,89 +152,29 @@ $(function() {
 
 
         // scroll
-        $('.menu__link').on('click', function(event) {
+        $('.menu__link, .footer-menu__link, .service__btn').on('click', function(event) {
+			    var target = $(this.getAttribute('href'));
+			    	if( target.length ) {
+			        event.preventDefault();
 
-		    var target = $(this.getAttribute('href'));
-		    if( target.length ) {
-		        event.preventDefault();
+			        $('html, body').stop().animate({
+			            scrollTop: target.offset().top - 110
+			        }, 1000);
 
-		        $('html, body').stop().animate({
-		            scrollTop: target.offset().top - 110
-		        }, 1000);
-
-		    }
-
-		});
+			    	}
+				});
 
 
         $('.mob-menu__link').on('click', function(event) {
-		    var target = $(this.getAttribute('href'));
-		    if( target.length ) {
-		        event.preventDefault();
-		        $('html, body').stop().animate({
-		            scrollTop: target.offset().top - 100
-		        }, 1000);
-		        $('.fixed-menu').removeClass('open');
-		    }
+			    var target = $(this.getAttribute('href'));
+			    if( target.length ) {
+			        event.preventDefault();
+			        $('html, body').stop().animate({
+			            scrollTop: target.offset().top - 100
+			        }, 1000);
+			        $('.fixed-menu').removeClass('open');
+			    }
         });
 
-        // form validation
-        $("#subscribe-top").validate({
-    			rules: {
-    				subscribe_top__email: {
-    					  required: true,
-    					  email: true
-    				 },
-    			},
-    			messages: {
-    				subscribe_top__email: {
-    				 required: "",
-    				 email: ""
-    			  },
-
-			 },
-			submitHandler: function (form) {
-				$.ajax({
-					type: "POST",
-					   url: "/mail.php",
-					data: $(form).serialize(),
-					success: function () {
-                        $(form).trigger("reset");
-					}
-				});
-				return false; // required to block normal submit since you used ajax
-			}
-        });
-
-        $("#subscribe-bot").validate({
-			rules: {
-				subscribe_bot__email: {
-					  required: true,
-					  email: true
-				 },
-			},
-			messages: {
-				subscribe_bot__email: {
-				 required: "",
-				 email: ""
-			   },
-
-			 },
-			submitHandler: function (form) {
-				$.ajax({
-					type: "POST",
-					   url: "/mail.php",
-					data: $(form).serialize(),
-					success: function () {
-                        $(form).trigger("reset");
-					}
-				});
-				return false; // required to block normal submit since you used ajax
-			}
 		});
-
-
-
-	});
-
 });
