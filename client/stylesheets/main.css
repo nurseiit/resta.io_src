@@ -8729,7 +8729,7 @@ input:hover {
 }
 
 .header.sticky .logo__img {
-    background-image: url(img/resta_color.png)
+    background-image: url(img/resta_color_logo.png)
 }
 
 .header.sticky .menu__link {
@@ -8784,7 +8784,7 @@ input:hover {
 .logo__img {
     width: 45px;
     height: 51px;
-    background-image: url(img/resta_color.png);
+    background-image: url(img/resta_color_logo.png);
     -webkit-background-size: contain;
     background-size: contain;
     background-position: center;
@@ -8807,7 +8807,7 @@ input:hover {
 }
 
 .logo--color .logo__img {
-    background-image: url(img/Logo_gradient.svg)
+    background-image: url(img/resta_color_logo.png)
 }
 
 .logo--color .logo__title {
@@ -10064,6 +10064,9 @@ input:hover {
   #first_about {
     margin-bottom: -150px;
   }
+  .x-down-lg {
+    padding: 25px;
+  }
 }
 
 @media screen and (max-width: 990px) {
@@ -10074,6 +10077,9 @@ input:hover {
   }
   #first_about {
     margin-bottom: auto;
+  }
+  .x-down-lg {
+    padding: 0;
   }
 }
 
