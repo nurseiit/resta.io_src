@@ -10065,7 +10065,10 @@ input:hover {
     margin-bottom: -150px;
   }
   .x-down-lg {
-    padding: 25px;
+    margin-top: 55px;
+  }
+  .x-up-lg {
+    margin-top: -155px;
   }
 }
 
@@ -10079,7 +10082,10 @@ input:hover {
     margin-bottom: auto;
   }
   .x-down-lg {
-    padding: 0;
+    margin: 0;
+  }
+  .x-up-lg {
+    margin: 0;
   }
 }
 
