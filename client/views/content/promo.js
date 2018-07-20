@@ -12,7 +12,6 @@ var config = {
 firebase.initializeApp(config);
 
 Template.promo.onRendered (function () {
-
   // show first screen animation
   setTimeout (function () {
     $('.promo').addClass('active');
